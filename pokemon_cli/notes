@@ -1,0 +1,14 @@
+1.Build Cli
+2.welcome user with list of pokemon
+3.user can pick pokemon
+4.display pokemon with
+    name
+    stats
+    moves
+    evelutions
+
+
+3 classes:
+Cli
+pokemon
+Api
