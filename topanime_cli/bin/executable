@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-require_relative '../lib/topanime_cli'
-
-
-TopanimeCli::CLI.new.run
-
