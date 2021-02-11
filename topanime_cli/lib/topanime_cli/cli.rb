@@ -73,9 +73,9 @@ class TopanimeCli::CLI
             puts "Score: #{s.score}"
             puts "*****************"
             
-            
+            menutwo
         end
-        menutwo
+        
     end
 
     def menutwo
@@ -95,10 +95,7 @@ class TopanimeCli::CLI
     end
 
     def exit
-        puts " "
-        puts "✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ✧･ﾟ:*✧"
-        puts "~ We hope to see you again! ~"
-        puts "✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ✧･ﾟ:*✧"
+        abort("~ We hope to see you again! ~")
     end
 
     
