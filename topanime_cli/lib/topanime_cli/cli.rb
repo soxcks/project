@@ -33,21 +33,7 @@ class TopanimeCli::CLI
         end
     end
 
-    def menutwo
-        puts " "
-        puts "**keep Learning about the Top Anime?**(y/n)"
-        
-        input = gets.strip.downcase
-
-        if input == "y"
-            anime_list
-        elsif input == "n"
-            exit
-        else
-            puts "error"
-            menutwo
-        end
-    end
+    
 
     def anime_list
         puts " "
@@ -58,11 +44,22 @@ class TopanimeCli::CLI
             puts "#{index}. #{anime.title}"
         end
         puts "*******************"
-        input = gets.strip.downcase
-        selecting_anime(input)
+        select_anime
     end
 
-    def selecting_anime(anime)
+    def select_anime
+        input = gets.strip.downcase
+        if input == anime_info(input)
+            anime_info
+        elsif input == "exit"
+            exit
+        else
+            puts "error"
+            anime_list
+        end
+    end
+
+    def anime_info(anime)
         show = Anime.find_by_name(anime)
         show.each do |s|
             puts " "
@@ -76,9 +73,25 @@ class TopanimeCli::CLI
             puts "Score: #{s.score}"
             puts "*****************"
             
+            
+        end
+        menutwo
+    end
+
+    def menutwo
+        puts " "
+        puts "**keep Learning about the Top Anime?**(y/n)"
+        
+        input = gets.strip.downcase
+
+        if input == "y"
+            anime_list
+        elsif input == "n"
+            exit
+        else
+            puts "**error, try again**"
             menutwo
         end
-
     end
 
     def exit
