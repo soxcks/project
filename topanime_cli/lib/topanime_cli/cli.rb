@@ -3,9 +3,10 @@ class TopanimeCli::CLI
     def run
         system("clear")
         greeting
-        API.get_data
+        API.new.get_data
         menu
     end
+
 
     def greeting
         puts "✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧"
@@ -32,9 +33,7 @@ class TopanimeCli::CLI
             menu
         end
     end
-
     
-
     def anime_list
         puts " "
         puts "✧･ﾟ: *✧･ﾟ:*✧･ﾟ*✧"
@@ -47,18 +46,25 @@ class TopanimeCli::CLI
         select_anime
     end
 
+    
+
     def select_anime
+        
         input = gets.strip.downcase
+       
         if input == anime_info(input)
             anime_info
         elsif input == "exit"
             exit
-        else
-            puts "error"
-            anime_list
+        
+        else input.to_i >= 0 && input.to_i <= Anime.all.length
+            anime = Anime.all[input.to_i - 1]
+            anime_info_index(anime)
+        
         end
+        
     end
-
+    
     def anime_info(anime)
         show = Anime.find_by_name(anime)
         show.each do |s|
@@ -76,6 +82,20 @@ class TopanimeCli::CLI
             menutwo
         end
         
+    end
+    
+    def anime_info_index(anime)
+        puts " "
+        puts "*****************"
+        puts "~ Good Choice ~"
+        puts "Rank: #{anime.rank}"  
+        puts "Title: #{anime.title}"
+        puts "Episodes: #{anime.episodes}"
+        puts "Start Date: #{anime.start_date}"
+        puts "End Date: #{anime.end_date}"
+        puts "Score: #{anime.score}"
+        puts "*****************"
+        menutwo
     end
 
     def menutwo
@@ -98,5 +118,4 @@ class TopanimeCli::CLI
         abort("~ We hope to see you again! ~")
     end
 
-    
 end

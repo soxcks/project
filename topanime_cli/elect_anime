@@ -1,0 +1,22 @@
+
+[1mFrom:[0m /home/socks/Development/code/topanime_cli/lib/topanime_cli/cli.rb:59 TopanimeCli::CLI#select_anime:
+
+    [1;34m51[0m: [32mdef[0m [1;34mselect_anime[0m
+    [1;34m52[0m:     
+    [1;34m53[0m:     input = gets.chomp.downcase
+    [1;34m54[0m:    
+    [1;34m55[0m:     [32mif[0m input == anime_info(input)
+    [1;34m56[0m:         anime_info
+    [1;34m57[0m:         
+    [1;34m58[0m:     [32melsif[0m input.to_i.between?([1;34m1[0m, [1;34m50[0m)
+ => [1;34m59[0m:         anime_info_index binding.pry
+    [1;34m60[0m:      
+    [1;34m61[0m:     [32melsif[0m input == [31m[1;31m"[0m[31mexit[1;31m"[0m[31m[0m
+    [1;34m62[0m:         exit
+    [1;34m63[0m:     [32melse[0m
+    [1;34m64[0m:         puts [31m[1;31m"[0m[31merror[1;31m"[0m[31m[0m
+    [1;34m65[0m:         anime_list
+    [1;34m66[0m:     [32mend[0m
+    [1;34m67[0m:     
+    [1;34m68[0m: [32mend[0m
+
